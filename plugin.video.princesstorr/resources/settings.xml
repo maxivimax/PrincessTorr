@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<settings>
+    <category label="30098">
+        <setting id="tmdb_api_key" type="text" label="30101" default=""/>
+        <setting id="tmdb_bearer" type="text" label="30102" default=""/>
+        <setting id="tmdb_lang" type="text" label="30103" default="ru-RU"/>
+        <setting id="tmdb_api_base" type="text" label="30105" default="https://api.themoviedb.org/3"/>
+        <setting id="tmdb_image_base" type="text" label="30106" default="https://image.tmdb.org/t/p"/>
+    </category>
+    <category label="30099">
+        <setting id="search_source" type="enum" label="30140" lvalues="30142|30141" default="0"/>
+        <setting id="jacred_url" type="text" label="30143" default="https://ru.jacred.pro"/>
+        <setting id="prowlarr_url" type="text" label="30110" default="http://localhost:9696"/>
+        <setting id="prowlarr_api_key" type="text" label="30112" default=""/>
+        <setting id="prowlarr_indexer_ids" type="text" label="30113" default=""/>
+    </category>
+    <category label="30130">
+        <setting id="proxy_url" type="text" label="30131" default=""/>
+    </category>
+    <category label="30100">
+        <setting id="jacktorr_prefer" type="enum" label="30120" lvalues="30121|30122|30123" default="0"/>
+        <setting id="cache_minutes" type="slider" label="30124" option="int" range="0,5,240" default="30"/>
+        <setting id="page_size" type="slider" label="30125" option="int" range="10,10,40" default="20"/>
+        <setting id="history_enabled" type="bool" label="30194" default="true"/>
+    </category>
+</settings>

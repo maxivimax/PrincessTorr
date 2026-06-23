@@ -1,0 +1,267 @@
+# PrincessTorr — English strings
+msgid ""
+msgstr ""
+"Project-Id-Version: plugin.video.princesstorr\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# --- Menus / UI ---
+msgctxt "#30001"
+msgid "Movies"
+msgstr ""
+
+msgctxt "#30002"
+msgid "TV Shows"
+msgstr ""
+
+msgctxt "#30003"
+msgid "Search movies"
+msgstr ""
+
+msgctxt "#30004"
+msgid "Search TV shows"
+msgstr ""
+
+msgctxt "#30010"
+msgid "Popular"
+msgstr ""
+
+msgctxt "#30011"
+msgid "Now playing"
+msgstr ""
+
+msgctxt "#30012"
+msgid "Upcoming"
+msgstr ""
+
+msgctxt "#30013"
+msgid "Top rated"
+msgstr ""
+
+msgctxt "#30014"
+msgid "By genre"
+msgstr ""
+
+msgctxt "#30015"
+msgid "Search"
+msgstr ""
+
+msgctxt "#30016"
+msgid "On the air"
+msgstr ""
+
+msgctxt "#30020"
+msgid "Next »"
+msgstr ""
+
+msgctxt "#30021"
+msgid "Find torrents for the whole season"
+msgstr ""
+
+msgctxt "#30022"
+msgid "Season %s"
+msgstr ""
+
+msgctxt "#30030"
+msgid "No torrents found"
+msgstr ""
+
+msgctxt "#30040"
+msgid "%s seeders"
+msgstr ""
+
+# --- Settings ---
+msgctxt "#30098"
+msgid "TMDb"
+msgstr ""
+
+msgctxt "#30099"
+msgid "Prowlarr"
+msgstr ""
+
+msgctxt "#30100"
+msgid "Behaviour"
+msgstr ""
+
+msgctxt "#30101"
+msgid "TMDb API key (v3)"
+msgstr ""
+
+msgctxt "#30102"
+msgid "TMDb v4 Bearer token (optional)"
+msgstr ""
+
+msgctxt "#30103"
+msgid "Metadata language"
+msgstr ""
+
+msgctxt "#30104"
+msgid "Metadata language (e.g. ru-RU)"
+msgstr ""
+
+msgctxt "#30105"
+msgid "TMDb API base URL"
+msgstr ""
+
+msgctxt "#30106"
+msgid "TMDb image base URL"
+msgstr ""
+
+msgctxt "#30110"
+msgid "Prowlarr address"
+msgstr ""
+
+msgctxt "#30111"
+msgid "Prowlarr address (http://host:9696)"
+msgstr ""
+
+msgctxt "#30112"
+msgid "Prowlarr API key"
+msgstr ""
+
+msgctxt "#30113"
+msgid "Indexer IDs (comma-separated, empty = all)"
+msgstr ""
+
+msgctxt "#30120"
+msgid "Preferred Jacktorr handoff"
+msgstr ""
+
+msgctxt "#30121"
+msgid "Auto (magnet, else .torrent URL)"
+msgstr ""
+
+msgctxt "#30122"
+msgid "Magnet only"
+msgstr ""
+
+msgctxt "#30123"
+msgid ".torrent URL only"
+msgstr ""
+
+msgctxt "#30124"
+msgid "Prowlarr results cache (minutes)"
+msgstr ""
+
+msgctxt "#30125"
+msgid "Catalog items per page"
+msgstr ""
+
+msgctxt "#30130"
+msgid "Network"
+msgstr ""
+
+msgctxt "#30131"
+msgid "HTTP proxy (host:port, empty = off)"
+msgstr ""
+
+msgctxt "#30140"
+msgid "Search source"
+msgstr ""
+
+msgctxt "#30141"
+msgid "Prowlarr"
+msgstr ""
+
+msgctxt "#30142"
+msgid "JacRed (public, like Lampa)"
+msgstr ""
+
+msgctxt "#30143"
+msgid "JacRed URL"
+msgstr ""
+
+msgctxt "#30150"
+msgid "Voice"
+msgstr ""
+
+msgctxt "#30151"
+msgid "Quality"
+msgstr ""
+
+msgctxt "#30152"
+msgid "Size"
+msgstr ""
+
+msgctxt "#30153"
+msgid "Seeders/leechers"
+msgstr ""
+
+msgctxt "#30154"
+msgid "Tracker"
+msgstr ""
+
+msgctxt "#30160"
+msgid "Not aired yet"
+msgstr ""
+
+msgctxt "#30161"
+msgid "airs %s"
+msgstr ""
+
+msgctxt "#30162"
+msgid "air date unknown"
+msgstr ""
+
+msgctxt "#30170"
+msgid "Sort"
+msgstr ""
+
+msgctxt "#30171"
+msgid "seeders"
+msgstr ""
+
+msgctxt "#30172"
+msgid "size"
+msgstr ""
+
+msgctxt "#30173"
+msgid "quality"
+msgstr ""
+
+msgctxt "#30175"
+msgid "any"
+msgstr ""
+
+msgctxt "#30176"
+msgid "Russian only"
+msgstr ""
+
+msgctxt "#30177"
+msgid "on"
+msgstr ""
+
+msgctxt "#30178"
+msgid "off"
+msgstr ""
+
+msgctxt "#30179"
+msgid "Filter by word"
+msgstr ""
+
+msgctxt "#30180"
+msgid "Reset filters"
+msgstr ""
+
+msgctxt "#30181"
+msgid "Nothing matches the filter — reset"
+msgstr ""
+
+msgctxt "#30190"
+msgid "Continue watching"
+msgstr ""
+
+msgctxt "#30191"
+msgid "Remove from history"
+msgstr ""
+
+msgctxt "#30192"
+msgid "Clear history"
+msgstr ""
+
+msgctxt "#30194"
+msgid "Save watch history"
+msgstr ""

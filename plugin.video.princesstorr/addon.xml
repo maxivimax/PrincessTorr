@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<addon
+    id="plugin.video.princesstorr"
+    name="PrincessTorr"
+    version="0.1.0"
+    provider-name="princessshine"
+>
+    <requires>
+        <import addon="xbmc.python" version="3.0.0" />
+        <import addon="plugin.video.jacktorr" optional="true" />
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="main.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="ru_RU">Каталог TMDb + Prowlarr + Jacktorr</summary>
+        <description
+            lang="ru_RU"
+        >Тут короче каталог фильмов и сериалов из TMDb с русскими метаданными, поиск раздач в Prowlarr по клику и воспроизведение через Jacktorr/TorrServer. Карточки нативные, внешний вид задаёт скин.</description>
+        <summary lang="en_GB">TMDb catalog + Prowlarr + Jacktorr</summary>
+        <description
+            lang="en_GB"
+        >There is a TMDb catalog of movies and TV shows, on-demand torrent search via Prowlarr and playback through Jacktorr/TorrServer. Native list items — your skin controls the look.</description>
+        <platform>all</platform>
+        <language>ru en</language>
+        <license>MIT</license>
+    </extension>
+</addon>

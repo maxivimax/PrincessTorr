@@ -1,0 +1,267 @@
+# PrincessTorr — русские строки
+msgid ""
+msgstr ""
+"Project-Id-Version: plugin.video.princesstorr\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# --- Меню / интерфейс ---
+msgctxt "#30001"
+msgid "Movies"
+msgstr "Фильмы"
+
+msgctxt "#30002"
+msgid "TV Shows"
+msgstr "Сериалы"
+
+msgctxt "#30003"
+msgid "Search movies"
+msgstr "Поиск фильмов"
+
+msgctxt "#30004"
+msgid "Search TV shows"
+msgstr "Поиск сериалов"
+
+msgctxt "#30010"
+msgid "Popular"
+msgstr "Популярное"
+
+msgctxt "#30011"
+msgid "Now playing"
+msgstr "Сейчас смотрят"
+
+msgctxt "#30012"
+msgid "Upcoming"
+msgstr "Новинки"
+
+msgctxt "#30013"
+msgid "Top rated"
+msgstr "Высокий рейтинг"
+
+msgctxt "#30014"
+msgid "By genre"
+msgstr "По жанрам"
+
+msgctxt "#30015"
+msgid "Search"
+msgstr "Поиск"
+
+msgctxt "#30016"
+msgid "On the air"
+msgstr "В эфире"
+
+msgctxt "#30020"
+msgid "Next »"
+msgstr "Дальше »"
+
+msgctxt "#30021"
+msgid "Find torrents for the whole season"
+msgstr "Найти раздачи на весь сезон"
+
+msgctxt "#30022"
+msgid "Season %s"
+msgstr "Сезон %s"
+
+msgctxt "#30030"
+msgid "No torrents found"
+msgstr "Раздачи не найдены"
+
+msgctxt "#30040"
+msgid "%s seeders"
+msgstr "%s сид."
+
+# --- Настройки ---
+msgctxt "#30098"
+msgid "TMDb"
+msgstr "TMDb"
+
+msgctxt "#30099"
+msgid "Prowlarr"
+msgstr "Prowlarr"
+
+msgctxt "#30100"
+msgid "Behaviour"
+msgstr "Поведение"
+
+msgctxt "#30101"
+msgid "TMDb API key (v3)"
+msgstr "TMDb API key (v3)"
+
+msgctxt "#30102"
+msgid "TMDb v4 Bearer token (optional)"
+msgstr "TMDb v4 Bearer token (необязательно)"
+
+msgctxt "#30103"
+msgid "Metadata language"
+msgstr "Язык метаданных"
+
+msgctxt "#30104"
+msgid "Metadata language (e.g. ru-RU)"
+msgstr "Язык метаданных (например ru-RU)"
+
+msgctxt "#30105"
+msgid "TMDb API base URL"
+msgstr "Базовый URL TMDb API"
+
+msgctxt "#30106"
+msgid "TMDb image base URL"
+msgstr "Базовый URL картинок TMDb"
+
+msgctxt "#30110"
+msgid "Prowlarr address"
+msgstr "Адрес Prowlarr"
+
+msgctxt "#30111"
+msgid "Prowlarr address (http://host:9696)"
+msgstr "Адрес Prowlarr (http://host:9696)"
+
+msgctxt "#30112"
+msgid "Prowlarr API key"
+msgstr "Prowlarr API key"
+
+msgctxt "#30113"
+msgid "Indexer IDs (comma-separated, empty = all)"
+msgstr "ID индексаторов (через запятую, пусто = все)"
+
+msgctxt "#30120"
+msgid "Preferred Jacktorr handoff"
+msgstr "Что предпочитать для Jacktorr"
+
+msgctxt "#30121"
+msgid "Auto (magnet, else .torrent URL)"
+msgstr "Авто (magnet, иначе .torrent URL)"
+
+msgctxt "#30122"
+msgid "Magnet only"
+msgstr "Только magnet"
+
+msgctxt "#30123"
+msgid ".torrent URL only"
+msgstr "Только .torrent URL"
+
+msgctxt "#30124"
+msgid "Prowlarr results cache (minutes)"
+msgstr "Кэш результатов Prowlarr (минут)"
+
+msgctxt "#30125"
+msgid "Catalog items per page"
+msgstr "Элементов на страницу каталога"
+
+msgctxt "#30130"
+msgid "Network"
+msgstr "Сеть"
+
+msgctxt "#30131"
+msgid "HTTP proxy (host:port, empty = off)"
+msgstr "HTTP-прокси (host:port, пусто = выкл)"
+
+msgctxt "#30140"
+msgid "Search source"
+msgstr "Источник поиска"
+
+msgctxt "#30141"
+msgid "Prowlarr"
+msgstr "Prowlarr"
+
+msgctxt "#30142"
+msgid "JacRed (public, like Lampa)"
+msgstr "JacRed (публичный, как в Lampa)"
+
+msgctxt "#30143"
+msgid "JacRed URL"
+msgstr "Адрес JacRed"
+
+msgctxt "#30150"
+msgid "Voice"
+msgstr "Озвучка"
+
+msgctxt "#30151"
+msgid "Quality"
+msgstr "Качество"
+
+msgctxt "#30152"
+msgid "Size"
+msgstr "Размер"
+
+msgctxt "#30153"
+msgid "Seeders/leechers"
+msgstr "Сиды/личи"
+
+msgctxt "#30154"
+msgid "Tracker"
+msgstr "Трекер"
+
+msgctxt "#30160"
+msgid "Not aired yet"
+msgstr "Ещё не вышла"
+
+msgctxt "#30161"
+msgid "airs %s"
+msgstr "выйдет %s"
+
+msgctxt "#30162"
+msgid "air date unknown"
+msgstr "дата выхода неизвестна"
+
+msgctxt "#30170"
+msgid "Sort"
+msgstr "Сортировка"
+
+msgctxt "#30171"
+msgid "seeders"
+msgstr "сиды"
+
+msgctxt "#30172"
+msgid "size"
+msgstr "размер"
+
+msgctxt "#30173"
+msgid "quality"
+msgstr "качество"
+
+msgctxt "#30175"
+msgid "any"
+msgstr "любое"
+
+msgctxt "#30176"
+msgid "Russian only"
+msgstr "Только русский"
+
+msgctxt "#30177"
+msgid "on"
+msgstr "вкл"
+
+msgctxt "#30178"
+msgid "off"
+msgstr "выкл"
+
+msgctxt "#30179"
+msgid "Filter by word"
+msgstr "Фильтр по слову"
+
+msgctxt "#30180"
+msgid "Reset filters"
+msgstr "Сбросить фильтры"
+
+msgctxt "#30181"
+msgid "Nothing matches the filter — reset"
+msgstr "Под фильтр ничего не подходит — сбросить"
+
+msgctxt "#30190"
+msgid "Continue watching"
+msgstr "Продолжить просмотр"
+
+msgctxt "#30191"
+msgid "Remove from history"
+msgstr "Убрать из истории"
+
+msgctxt "#30192"
+msgid "Clear history"
+msgstr "Очистить историю"
+
+msgctxt "#30194"
+msgid "Save watch history"
+msgstr "Сохранять историю просмотра"
