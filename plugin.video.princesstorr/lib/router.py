@@ -406,23 +406,54 @@ def _render_releases(releases, heading, ctx):
         _end()
         return
 
+    if utils.setting("history_enabled", "true") == "true" and ctx.get("id"):
+        history.record(ctx["mt"], ctx["id"], ctx["title"], ctx["poster"],
+                       ctx.get("s", ""), ctx.get("e", ""))
+
     p = _params()
+    action = p.get("action")
+    base = {k: v for k, v in p.items()
+            if k not in ("action", "ask_kw", "sort", "qual", "rus", "kw")}
     sort = p.get("sort", "seeders")
     qual = p.get("qual", "any")
     rus = p.get("rus", "0")
     kw = p.get("kw", "")
+    if p.get("ask_kw") == "1":
+        kw = _ask(L(30179)) or ""
+    state = {"sort": sort, "qual": qual, "rus": rus, "kw": kw}
 
-    _filter_header(sort, qual, rus, kw)
+    def link(label, **override):
+        params = dict(base)
+        params.update(state)
+        params.update(override)
+        params = {k: v for k, v in params.items() if v not in ("", None)}
+        _add_dir(label, url_for(action, **params))
+
+    link("⇅ %s: %s" % (L(30170), _sort_name(sort)), sort=_cycle(_SORTS, sort))
+    link("◆ %s: %s" % (L(30151), qual if qual != "any" else L(30175)),
+         qual=_cycle(_QUALS, qual))
+    link("🔊 %s: %s" % (L(30176), L(30177) if rus == "1" else L(30178)),
+         rus="0" if rus == "1" else "1")
+    kwp = dict(base)
+    kwp.update(state)
+    kwp["ask_kw"] = "1"
+    kwp = {k: v for k, v in kwp.items() if v not in ("", None)}
+    _add_dir("🔎 %s" % (kw if kw else L(30179)), url_for(action, **kwp))
+    if sort != "seeders" or qual != "any" or rus == "1" or kw:
+        link("✖ %s" % L(30180), sort="seeders", qual="any", rus="0", kw="")
+
     items = _apply_filters(releases, sort, qual, rus, kw)
-
     if not items:
-        _filter_link(L(30181), sort="seeders", qual="any", rus="0", kw="")
+        link(L(30181), sort="seeders", qual="any", rus="0", kw="")
         xbmcplugin.setContent(HANDLE, "videos")
         _end()
         return
 
+    prefer = utils.setting_int("jacktorr_prefer", 0)
     for rel in items:
-        if not (rel.get("magnet") or rel.get("download_url")):
+        play_url = jacktorr.build_play_url(
+            rel.get("magnet", ""), rel.get("download_url", ""), prefer)
+        if not play_url:
             continue
         item = xbmcgui.ListItem(_release_label(rel))
         item.setInfo("video", {
@@ -431,11 +462,7 @@ def _render_releases(releases, heading, ctx):
             "mediatype": "movie",
         })
         item.setProperty("IsPlayable", "true")
-        url = url_for("play_release",
-                      magnet=rel.get("magnet", ""), url=rel.get("download_url", ""),
-                      mt=ctx["mt"], id=ctx["id"], title=ctx["title"],
-                      poster=ctx["poster"], s=ctx["s"], e=ctx["e"])
-        xbmcplugin.addDirectoryItem(HANDLE, url, item, isFolder=False)
+        xbmcplugin.addDirectoryItem(HANDLE, play_url, item, isFolder=False)
 
     xbmcplugin.setContent(HANDLE, "videos")
     _end()
@@ -452,34 +479,8 @@ def _cycle(seq, cur):
         return seq[0]
 
 
-def _filter_header(sort, qual, rus, kw):
-    _filter_link("⇅ %s: %s" % (L(30170), _sort_name(sort)), sort=_cycle(_SORTS, sort))
-    _filter_link("◆ %s: %s" % (L(30151), qual if qual != "any" else L(30175)),
-                 qual=_cycle(_QUALS, qual))
-    _filter_link("🔊 %s: %s" % (L(30176), L(30177) if rus == "1" else L(30178)),
-                 rus="0" if rus == "1" else "1")
-    _kw_link("🔎 %s" % (kw if kw else L(30179)))
-    if sort != "seeders" or qual != "any" or rus == "1" or kw:
-        _filter_link("✖ %s" % L(30180), sort="seeders", qual="any", rus="0", kw="")
-
-
 def _sort_name(sort):
     return {"seeders": L(30171), "size": L(30172), "quality": L(30173)}.get(sort, sort)
-
-
-def _filter_link(label, **override):
-    p = _params()
-    params = {k: v for k, v in p.items() if k not in ("action", "ask_kw")}
-    params.update(override)
-    params["base_action"] = p.get("action")
-    _add_dir(label, url_for("set_filter", **params))
-
-
-def _kw_link(label):
-    p = _params()
-    params = {k: v for k, v in p.items() if k not in ("action", "ask_kw")}
-    params["base_action"] = p.get("action")
-    _add_dir(label, url_for("kw_filter", **params))
 
 
 def _apply_filters(releases, sort, qual, rus, kw):
@@ -503,35 +504,6 @@ def _sort_releases(items, sort):
         rank = {"4K": 4, "1080p": 3, "720p": 2, "SD": 1}
         return sorted(items, key=lambda r: rank.get(r.get("quality"), 0), reverse=True)
     return sorted(items, key=lambda r: r.get("seeders") or 0, reverse=True)
-
-
-def set_filter():
-    p = _params()
-    rest = {k: v for k, v in p.items()
-            if k not in ("action", "base_action") and v not in ("", None)}
-    xbmc.executebuiltin(
-        "Container.Update(%s,replace)" % url_for(p.get("base_action"), **rest))
-
-
-def kw_filter():
-    p = _params()
-    word = _ask(L(30179))
-    rest = {k: v for k, v in p.items()
-            if k not in ("action", "base_action", "kw") and v not in ("", None)}
-    if word:
-        rest["kw"] = word
-    xbmc.executebuiltin(
-        "Container.Update(%s,replace)" % url_for(p.get("base_action"), **rest))
-
-
-def play_release():
-    p = _params()
-    if utils.setting("history_enabled", "true") == "true":
-        history.record(p.get("mt"), p.get("id"), p.get("title"),
-                       p.get("poster"), p.get("s"), p.get("e"))
-    prefer = utils.setting_int("jacktorr_prefer", 0)
-    jurl = jacktorr.build_play_url(p.get("magnet"), p.get("url"), prefer)
-    xbmcplugin.setResolvedUrl(HANDLE, bool(jurl), xbmcgui.ListItem(path=jurl or ""))
 
 
 def history_list():
@@ -651,9 +623,6 @@ ACTIONS = {
     "season_torrents": season_torrents,
     "episode_torrents": episode_torrents,
     "not_aired": not_aired,
-    "set_filter": set_filter,
-    "kw_filter": kw_filter,
-    "play_release": play_release,
     "history_list": history_list,
     "history_remove": history_remove,
     "history_clear": history_clear,
