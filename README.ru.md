@@ -25,10 +25,25 @@
 
 ## Установка
 
+### Из репозитория (рекомендуется, авто-обновления)
+
+Страница репозитория: https://maxivimax.github.io/PrincessTorr/
+
+1. Kodi → Settings → System → Add-ons → включи **Unknown sources** (неизвестные источники).
+2. Скачай zip репозитория:
+   [`repository.princesstorr-1.0.0.zip`](https://maxivimax.github.io/PrincessTorr/repository.princesstorr/repository.princesstorr-1.0.0.zip).
+3. Add-ons → **Install from zip file** → выбери скачанный zip.
+4. Add-ons → **Install from repository** → *PrincessTorr Repository* → Video add-ons → PrincessTorr.
+
+Дальше Kodi обновляет аддон автоматически.
+
+### Вручную (одним zip)
+
 1. Скопируй папку `plugin.video.princesstorr` в каталог аддонов Kodi
    (`~/.kodi/addons/` на Linux, `%APPDATA%\Kodi\addons\` на Windows) или поставь собранный zip через "Установка из ZIP".
 2. Запусти Kodi, аддон появится в разделе "Видео".
-3. Установи и настрой [`plugin.video.jacktorr`](https://github.com/Sam-Max/plugin.video.jacktorr) на свой TorrServer.
+
+В обоих случаях установи и настрой [`plugin.video.jacktorr`](https://github.com/Sam-Max/plugin.video.jacktorr) на свой TorrServer.
 
 ## Настройка
 

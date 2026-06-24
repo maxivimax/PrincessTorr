@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>PrincessTorr - Kodi repository</title>
+        <style>
+            :root {
+                --bg: #0a0b0d;
+                --fg: #d6d9dd;
+                --dim: #8a929b;
+                --green: #7ee787;
+                --cyan: #56d4dd;
+                --line: #20242a;
+                --card: #111317;
+            }
+            * {
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                background: var(--bg);
+            }
+            body {
+                color: var(--fg);
+                font:
+                    15px/1.65 ui-monospace,
+                    "SF Mono",
+                    "JetBrains Mono",
+                    Menlo,
+                    Consolas,
+                    monospace;
+                padding: 48px 20px 80px;
+            }
+            main {
+                max-width: 760px;
+                margin: 0 auto;
+            }
+            h1 {
+                font-size: 30px;
+                margin: 0 0 4px;
+                letter-spacing: 1px;
+            }
+            h1 .p {
+                color: var(--green);
+            }
+            h2 {
+                font-size: 16px;
+                margin: 40px 0 14px;
+                color: var(--cyan);
+                border-bottom: 1px solid var(--line);
+                padding-bottom: 8px;
+            }
+            .tag {
+                color: var(--dim);
+                margin: 0 0 22px;
+            }
+            a {
+                color: var(--green);
+                text-decoration: none;
+                border-bottom: 1px dotted var(--line);
+            }
+            a:hover {
+                border-bottom-color: var(--green);
+            }
+            ul,
+            ol {
+                padding-left: 22px;
+            }
+            li {
+                margin: 6px 0;
+            }
+            code {
+                background: var(--card);
+                border: 1px solid var(--line);
+                border-radius: 4px;
+                padding: 1px 6px;
+                color: var(--cyan);
+            }
+            .card {
+                background: var(--card);
+                border: 1px solid var(--line);
+                border-radius: 10px;
+                padding: 18px 20px;
+                margin: 16px 0;
+            }
+            .url {
+                word-break: break-all;
+                color: var(--green);
+            }
+            .btn {
+                display: inline-block;
+                margin: 14px 0 2px;
+                padding: 11px 18px;
+                background: var(--green);
+                color: #06210b;
+                font-weight: 700;
+                border-radius: 8px;
+                border-bottom: none;
+            }
+            .btn:hover {
+                background: #9bf0a2;
+                border-bottom: none;
+            }
+            .muted {
+                color: var(--dim);
+                font-size: 13px;
+            }
+            footer {
+                margin-top: 48px;
+                color: var(--dim);
+                font-size: 13px;
+                border-top: 1px solid var(--line);
+                padding-top: 16px;
+            }
+            .prompt::before {
+                content: "$ ";
+                color: var(--green);
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h1><span class="p">Princess</span>Torr</h1>
+            <p class="tag">
+                Kodi addon: a TMDb catalog of movies and TV shows, on-demand
+                torrent search and playback via Jacktorr/TorrServer. Native UI -
+                your skin drives the look.
+            </p>
+
+            <h2>Add to Kodi</h2>
+            <div class="card">
+                <p>
+                    Install the repository once - Kodi keeps the addon updated
+                    automatically.
+                </p>
+                <ol>
+                    <li>
+                        Kodi → Settings → System → Add-ons → enable
+                        <code>Unknown sources</code>.
+                    </li>
+                    <li>Download the repository zip (button below).</li>
+                    <li>
+                        Add-ons → <b>Install from zip file</b> → pick the
+                        downloaded zip.
+                    </li>
+                    <li>
+                        Add-ons → <b>Install from repository</b> →
+                        <i>PrincessTorr Repository</i> → Video add-ons →
+                        PrincessTorr.
+                    </li>
+                </ol>
+                <a
+                    class="btn"
+                    href="repository.princesstorr/repository.princesstorr-1.0.0.zip"
+                    >Download repository zip</a
+                >
+                <p class="prompt muted">
+                    Repository index:
+                    <span class="url">
+                        https://maxivimax.github.io/PrincessTorr/addons.xml
+                    </span>
+                </p>
+            </div>
+
+            <h2>Features</h2>
+            <ul>
+                <li>
+                    TMDb catalog with localized metadata (Russian by default):
+                    movies, TV shows, genres, search.
+                </li>
+                <li>
+                    On-demand torrent search - JacRed (public RU tracker
+                    aggregator, like in Lampa) or Prowlarr.
+                </li>
+                <li>
+                    Voice/dub, quality, size and seeders right in the release
+                    line.
+                </li>
+                <li>
+                    List sorting and filters: seeders/size/quality, Russian
+                    only, search by word.
+                </li>
+                <li>
+                    Pick the list view (posters, wall, …) and make it the
+                    default per skin.
+                </li>
+                <li>
+                    Episode air status, continue watching and local history.
+                </li>
+                <li>
+                    Playback via Jacktorr. Search runs only when you open a
+                    title, so the catalog opens fast.
+                </li>
+            </ul>
+
+            <h2>Configuration</h2>
+            <ul>
+                <li>
+                    TMDb:
+                    <a href="https://www.themoviedb.org/settings/api"
+                        >API key (v3 or v4 Bearer)</a
+                    >
+                    and metadata language.
+                </li>
+                <li>
+                    Search source: JacRed (default) or Prowlarr with address and
+                    key.
+                </li>
+                <li>Network: HTTP proxy if needed.</li>
+            </ul>
+            <p class="muted">
+                Needs
+                <a href="https://github.com/Sam-Max/plugin.video.jacktorr"
+                    >plugin.video.jacktorr</a
+                >
+                pointed at your TorrServer. If TMDb is DNS-blocked, a clean DNS
+                on the device helps.
+            </p>
+
+            <footer>
+                <p>
+                    <a href="https://github.com/maxivimax/PrincessTorr"
+                        >GitHub</a
+                    >
+                    ·
+                    <a
+                        href="https://github.com/maxivimax/PrincessTorr/blob/main/CHANGELOG.md"
+                        >Changelog</a
+                    >
+                    ·
+                    <a href="https://t.me/iamprincessshine"
+                        >Telegram @iamprincessshine</a
+                    >
+                </p>
+            </footer>
+        </main>
+    </body>
+</html>

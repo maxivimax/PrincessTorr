@@ -25,10 +25,25 @@
 
 ## Install
 
+### From the repository (recommended, auto-updates)
+
+Repository page: https://maxivimax.github.io/PrincessTorr/
+
+1. Kodi → Settings → System → Add-ons → enable **Unknown sources**.
+2. Download the repository zip:
+   [`repository.princesstorr-1.0.0.zip`](https://maxivimax.github.io/PrincessTorr/repository.princesstorr/repository.princesstorr-1.0.0.zip).
+3. Add-ons → **Install from zip file** → pick the downloaded zip.
+4. Add-ons → **Install from repository** → *PrincessTorr Repository* → Video add-ons → PrincessTorr.
+
+Kodi then keeps the addon up to date automatically.
+
+### Manual (single zip)
+
 1. Copy the `plugin.video.princesstorr` folder into the Kodi addons directory
    (`~/.kodi/addons/` on Linux, `%APPDATA%\Kodi\addons\` on Windows), or use the built zip via "Install from zip file".
 2. Start Kodi, the addon appears under "Video add-ons".
-3. Install and configure [`plugin.video.jacktorr`](https://github.com/Sam-Max/plugin.video.jacktorr) for your TorrServer.
+
+In both cases, install and configure [`plugin.video.jacktorr`](https://github.com/Sam-Max/plugin.video.jacktorr) for your TorrServer.
 
 ## Configuration
 
