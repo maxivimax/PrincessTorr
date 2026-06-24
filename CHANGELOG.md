@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+- The addon is now distributed through the PrincessTorr Kodi repository: install
+  the repository once and Kodi keeps the addon up to date automatically.
+
 ## 0.1.1
 - JacRed movie search now queries both the localized and the original title and
   merges the results (fixes cases like "Awareness"/"Осознание" where most

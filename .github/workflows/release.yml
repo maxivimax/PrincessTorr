@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Подготовить релиз из CHANGELOG
+        id: prep
+        run: python3 tools/release.py
+
+      - name: Собрать Kodi-репозиторий
+        run: python3 tools/build_repo.py
+
+      - name: Закоммитить и запушить
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Release v${{ steps.prep.outputs.version }}"
+          git push
+
+      - name: Создать GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "v${{ steps.prep.outputs.version }}" \
+            "docs/plugin.video.princesstorr/plugin.video.princesstorr-${{ steps.prep.outputs.version }}.zip" \
+            --title "v${{ steps.prep.outputs.version }}" \
+            --notes-file "${{ steps.prep.outputs.body_path }}"

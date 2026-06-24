@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<addon
+    id="repository.princesstorr"
+    name="PrincessTorr Repository"
+    version="1.0.0"
+    provider-name="princessshine"
+>
+    <extension point="xbmc.addon.repository" name="PrincessTorr Repository">
+        <dir>
+            <info compressed="false">https://maxivimax.github.io/PrincessTorr/addons.xml</info>
+            <checksum>https://maxivimax.github.io/PrincessTorr/addons.xml.md5</checksum>
+            <datadir zip="true">https://maxivimax.github.io/PrincessTorr/</datadir>
+        </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">PrincessTorr addon repository</summary>
+        <summary lang="ru_RU">Репозиторий аддона PrincessTorr</summary>
+        <description lang="en_GB">Automatic updates for the PrincessTorr addon.</description>
+        <description lang="ru_RU">Автоматические обновления аддона PrincessTorr.</description>
+        <platform>all</platform>
+    </extension>
+</addon>

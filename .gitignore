@@ -1,5 +1,7 @@
 # Builds
 *.zip
+# ...but the published Kodi repository (served via GitHub Pages) must be tracked
+!docs/**/*.zip
 
 # Python
 __pycache__/

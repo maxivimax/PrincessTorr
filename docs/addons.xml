@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<addons>
+<addon
+    id="plugin.video.princesstorr"
+    name="PrincessTorr"
+    version="0.1.1"
+    provider-name="princessshine"
+>
+    <requires>
+        <import addon="xbmc.python" version="3.0.0" />
+        <import addon="plugin.video.jacktorr" optional="true" />
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="main.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="ru_RU">Каталог TMDb + Prowlarr + Jacktorr</summary>
+        <description
+            lang="ru_RU"
+        >Тут короче каталог фильмов и сериалов из TMDb с русскими метаданными, поиск раздач в Prowlarr по клику и воспроизведение через Jacktorr/TorrServer. Карточки нативные, внешний вид задаёт скин.</description>
+        <summary lang="en_GB">TMDb catalog + Prowlarr + Jacktorr</summary>
+        <description
+            lang="en_GB"
+        >There is a TMDb catalog of movies and TV shows, on-demand torrent search via Prowlarr and playback through Jacktorr/TorrServer. Native list items — your skin controls the look.</description>
+        <platform>all</platform>
+        <language>ru en</language>
+        <license>MIT</license>
+    </extension>
+</addon>
+<addon
+    id="repository.princesstorr"
+    name="PrincessTorr Repository"
+    version="1.0.0"
+    provider-name="princessshine"
+>
+    <extension point="xbmc.addon.repository" name="PrincessTorr Repository">
+        <dir>
+            <info compressed="false">https://maxivimax.github.io/PrincessTorr/addons.xml</info>
+            <checksum>https://maxivimax.github.io/PrincessTorr/addons.xml.md5</checksum>
+            <datadir zip="true">https://maxivimax.github.io/PrincessTorr/</datadir>
+        </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">PrincessTorr addon repository</summary>
+        <summary lang="ru_RU">Репозиторий аддона PrincessTorr</summary>
+        <description lang="en_GB">Automatic updates for the PrincessTorr addon.</description>
+        <description lang="ru_RU">Автоматические обновления аддона PrincessTorr.</description>
+        <platform>all</platform>
+    </extension>
+</addon>
+</addons>
