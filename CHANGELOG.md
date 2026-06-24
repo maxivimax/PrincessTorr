@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.1.1
+- JacRed movie search now queries both the localized and the original title and
+  merges the results (fixes cases like "Awareness"/"Осознание" where most
+  releases live under a different Russian title than TMDb returns); the same
+  dual-title search is used for TV releases.
+- JacRed results are filtered by the selected film's year (exact year, falling
+  back to +-1), so same-named films from other years no longer pollute the list.
+- "Russian only" filter for JacRed now detects Russian audio from the release
+  title (ЛМ/MVO/DVO/dubbing/"от <author>", etc.), not just the often-empty
+  `voices` field; subtitle-only releases ("СТ"/"Субтитры") stay excluded.
+- Sort/quality/Russian/keyword/reset controls in the release list update the
+  list in place (`endOfDirectory(updateListing=True)`) instead of opening a new
+  page, so toggling filters no longer piles up navigation history.
+- Removed emoji from the release-list filter rows: supplementary-plane glyphs
+  (🔊/🔎) broke the label in the Kodi skin font, leaving rows visually empty;
+  the rows now show plain text.
+- Default list view per skin. Switch a movie/TV list to the view you want with
+  the skin's own menu, then pick "Set as default view" from the item context
+  menu — the addon remembers the skin's view id and reapplies it for movie and
+  TV lists (and history). View ids are stored in settings and editable there.
+
 ## 0.1.0
 - Release list for an episode is filtered to those that actually contain the
   selected episode (packs `1-4`, `1-2` no longer show up for episode 5).

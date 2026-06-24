@@ -23,4 +23,8 @@
         <setting id="page_size" type="slider" label="30125" option="int" range="10,10,40" default="20"/>
         <setting id="history_enabled" type="bool" label="30194" default="true"/>
     </category>
+    <category label="30195">
+        <setting id="view_movies" type="text" label="30196" default=""/>
+        <setting id="view_tv" type="text" label="30197" default=""/>
+    </category>
 </settings>

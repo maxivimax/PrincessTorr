@@ -265,3 +265,23 @@ msgstr ""
 msgctxt "#30194"
 msgid "Save watch history"
 msgstr ""
+
+msgctxt "#30195"
+msgid "List view"
+msgstr ""
+
+msgctxt "#30196"
+msgid "Movies view ID"
+msgstr ""
+
+msgctxt "#30197"
+msgid "TV shows view ID"
+msgstr ""
+
+msgctxt "#30198"
+msgid "Set as default view"
+msgstr ""
+
+msgctxt "#30199"
+msgid "Default view saved"
+msgstr ""

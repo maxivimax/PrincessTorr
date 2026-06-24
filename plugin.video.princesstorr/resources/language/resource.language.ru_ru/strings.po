@@ -265,3 +265,23 @@ msgstr "Очистить историю"
 msgctxt "#30194"
 msgid "Save watch history"
 msgstr "Сохранять историю просмотра"
+
+msgctxt "#30195"
+msgid "List view"
+msgstr "Вид списков"
+
+msgctxt "#30196"
+msgid "Movies view ID"
+msgstr "ID вида для фильмов"
+
+msgctxt "#30197"
+msgid "TV shows view ID"
+msgstr "ID вида для сериалов"
+
+msgctxt "#30198"
+msgid "Set as default view"
+msgstr "Сделать вид стандартным"
+
+msgctxt "#30199"
+msgid "Default view saved"
+msgstr "Вид по умолчанию сохранён"

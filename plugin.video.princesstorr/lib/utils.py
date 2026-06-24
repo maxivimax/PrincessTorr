@@ -23,6 +23,10 @@ def setting(key, default=""):
     return value if value != "" else default
 
 
+def set_setting(key, value):
+    ADDON.setSetting(key, str(value))
+
+
 def setting_int(key, default=0):
     try:
         return int(ADDON.getSetting(key))

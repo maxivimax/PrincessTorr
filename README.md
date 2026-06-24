@@ -18,6 +18,7 @@
 - On demand torrent search, source JacRed (a public RU tracker aggregator, like in Lampa) or Prowlarr.
 - Voice/dub shown right in the release line, plus quality, size, seeders.
 - List sorting and filters: seeders/size/quality, Russian only, search by word.
+- Pick the list view (posters, wall, etc.) via the "Set as default view" context action remembered separately for movies and TV shows.
 - Episode air status: unaired episodes are marked and show the air date.
 - Continue watching and local history.
 - Playback via Jacktorr. Search runs only when you open a movie or episode, so the catalog opens fast.

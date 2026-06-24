@@ -222,7 +222,7 @@ def movie_torrents():
     imdb = (details.get("external_ids") or {}).get("imdb_id") or ""
 
     if _source() == "jacred":
-        releases = jacred.search_movie(title, original)
+        releases = jacred.search_movie(title, original, year)
     else:
         queries = _movie_queries(title, original, year, imdb)
         releases = [prowlarr.normalize(r)
@@ -339,6 +339,7 @@ def _episode_queries(title, original, season, episode):
 def _render_movies(data, page_url_fn, page):
     for movie in data.get("results", []):
         item = _movie_item(movie)
+        item.addContextMenuItems([_set_view_menu("movies")])
         xbmcplugin.addDirectoryItem(
             HANDLE,
             url_for("movie_torrents", tmdb_id=movie.get("id")),
@@ -346,11 +347,13 @@ def _render_movies(data, page_url_fn, page):
     _maybe_next_page(data, page_url_fn, page)
     xbmcplugin.setContent(HANDLE, "movies")
     _end()
+    _apply_view("view_movies")
 
 
 def _render_tv(data, page_url_fn, page):
     for show in data.get("results", []):
         item = _tv_item(show)
+        item.addContextMenuItems([_set_view_menu("tv")])
         xbmcplugin.addDirectoryItem(
             HANDLE,
             url_for("tv_seasons", tmdb_id=show.get("id")),
@@ -358,6 +361,29 @@ def _render_tv(data, page_url_fn, page):
     _maybe_next_page(data, page_url_fn, page)
     xbmcplugin.setContent(HANDLE, "tvshows")
     _end()
+    _apply_view("view_tv")
+
+
+def _set_view_menu(kind):
+    return (L(30198), "RunPlugin(%s)" % url_for("set_default_view", kind=kind))
+
+
+def _apply_view(key):
+    view_id = utils.setting(key)
+    if view_id:
+        xbmc.executebuiltin("Container.SetViewMode(%s)" % view_id)
+
+
+def set_default_view():
+    kind = _params().get("kind", "movies")
+    key = "view_tv" if kind == "tv" else "view_movies"
+    view_id = xbmc.getInfoLabel("System.CurrentControlId")
+    name = xbmc.getInfoLabel("Container.Viewmode")
+    if view_id and view_id != "0":
+        utils.set_setting(key, view_id)
+        utils.notify("%s: %s" % (L(30199), name or view_id))
+    else:
+        utils.notify(L(30199))
 
 
 def _movie_item(movie):
@@ -412,8 +438,9 @@ def _render_releases(releases, heading, ctx):
 
     p = _params()
     action = p.get("action")
+    replace = p.get("replace") == "1"
     base = {k: v for k, v in p.items()
-            if k not in ("action", "ask_kw", "sort", "qual", "rus", "kw")}
+            if k not in ("action", "ask_kw", "replace", "sort", "qual", "rus", "kw")}
     sort = p.get("sort", "seeders")
     qual = p.get("qual", "any")
     rus = p.get("rus", "0")
@@ -426,27 +453,29 @@ def _render_releases(releases, heading, ctx):
         params = dict(base)
         params.update(state)
         params.update(override)
+        params["replace"] = "1"
         params = {k: v for k, v in params.items() if v not in ("", None)}
         _add_dir(label, url_for(action, **params))
 
-    link("⇅ %s: %s" % (L(30170), _sort_name(sort)), sort=_cycle(_SORTS, sort))
-    link("◆ %s: %s" % (L(30151), qual if qual != "any" else L(30175)),
+    link("%s: %s" % (L(30170), _sort_name(sort)), sort=_cycle(_SORTS, sort))
+    link("%s: %s" % (L(30151), qual if qual != "any" else L(30175)),
          qual=_cycle(_QUALS, qual))
-    link("🔊 %s: %s" % (L(30176), L(30177) if rus == "1" else L(30178)),
+    link("%s: %s" % (L(30176), L(30177) if rus == "1" else L(30178)),
          rus="0" if rus == "1" else "1")
     kwp = dict(base)
     kwp.update(state)
     kwp["ask_kw"] = "1"
+    kwp["replace"] = "1"
     kwp = {k: v for k, v in kwp.items() if v not in ("", None)}
-    _add_dir("🔎 %s" % (kw if kw else L(30179)), url_for(action, **kwp))
+    _add_dir("%s: %s" % (L(30179), kw) if kw else L(30179), url_for(action, **kwp))
     if sort != "seeders" or qual != "any" or rus == "1" or kw:
-        link("✖ %s" % L(30180), sort="seeders", qual="any", rus="0", kw="")
+        link(L(30180), sort="seeders", qual="any", rus="0", kw="")
 
     items = _apply_filters(releases, sort, qual, rus, kw)
     if not items:
         link(L(30181), sort="seeders", qual="any", rus="0", kw="")
         xbmcplugin.setContent(HANDLE, "videos")
-        _end()
+        xbmcplugin.endOfDirectory(HANDLE, updateListing=replace)
         return
 
     prefer = utils.setting_int("jacktorr_prefer", 0)
@@ -465,7 +494,7 @@ def _render_releases(releases, heading, ctx):
         xbmcplugin.addDirectoryItem(HANDLE, play_url, item, isFolder=False)
 
     xbmcplugin.setContent(HANDLE, "videos")
-    _end()
+    xbmcplugin.endOfDirectory(HANDLE, updateListing=replace)
 
 
 _SORTS = ["seeders", "size", "quality"]
@@ -528,6 +557,7 @@ def history_list():
         xbmcplugin.addDirectoryItem(HANDLE, target, item, isFolder=True)
     xbmcplugin.setContent(HANDLE, "movies")
     _end()
+    _apply_view("view_movies")
 
 
 def _history_label(it):
@@ -626,6 +656,7 @@ ACTIONS = {
     "history_list": history_list,
     "history_remove": history_remove,
     "history_clear": history_clear,
+    "set_default_view": set_default_view,
 }
 
 
