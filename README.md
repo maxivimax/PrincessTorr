@@ -23,6 +23,15 @@
 - Continue watching and local history.
 - Playback via Jacktorr. Search runs only when you open a movie or episode, so the catalog opens fast.
 
+## Screenshots
+
+<p align="center">
+  <img src="docs/screenshots/4.%20movie%20info.webp" width="49%" alt="Catalog: poster and synopsis">
+  <img src="docs/screenshots/7.%20torrents.webp" width="49%" alt="Release list with filters">
+</p>
+
+More in [SCREENSHOTS.md](SCREENSHOTS.md) · [online gallery](https://maxivimax.github.io/PrincessTorr/screenshots.html).
+
 ## Install
 
 ### From the repository (recommended, auto-updates)
@@ -67,6 +76,13 @@ Opening a movie starts the torrent search. TV show goes seasons, episodes; a sea
 ## Dependencies
 
 Python standard library only (urllib). No external modules.
+
+## Disclaimer
+
+This addon is provided for educational purposes only. It hosts no content and
+indexes nothing — it only queries third-party services configured by the user.
+Use it only with content you are legally entitled to access. The author takes no
+responsibility for how it is used.
 
 ## Author
 
